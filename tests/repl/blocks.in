@@ -1,0 +1,12 @@
+z = (1 +
+2)
+z
+if z == 3: print(1)
+
+if z:  # comment
+    pass
+else:
+    print(0)
+
+while z < 5:
+    z = z + 1

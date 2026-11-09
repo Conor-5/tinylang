@@ -1,0 +1,8 @@
+print(7 // 2)
+print(-7 // 2)
+print(-7 % 2)
+print(2147483647 + 1)
+print(2 and 3)
+print(0 or 5)
+print(not 5)
+print(1 + 2 * 3)

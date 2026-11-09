@@ -1,0 +1,4 @@
+# Test inputs must stay byte-exact: some depend on \r\n line endings,
+# a lone \r, or no final newline. Never let git convert them.
+tests/programs/* -text
+tests/repl/* -text

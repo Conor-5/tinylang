@@ -1,0 +1,9 @@
+print(2 + 3 * 4)
+2 + 3
+x = 5
+x
+while x > 3:
+    print(x)
+    x = x - 1
+
+x

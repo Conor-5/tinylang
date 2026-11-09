@@ -1,0 +1,1 @@
+print(not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not not 1)

@@ -1,0 +1,7 @@
+>>> line 1: unknown name 'y'
+>>> line 1: expected expression, got end of line
+>>> >>> runtime error: division by zero
+>>> 2
+>>> line 1: unexpected indent
+>>> 1
+>>> 
