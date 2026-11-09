@@ -1,0 +1,18 @@
+# CI: builds everything and runs every test on each push to main and on
+# pull requests. `make -C tests` runs the normal build and the
+# -fsanitize=address,undefined build, both with -Werror.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04   # same Ubuntu release and GCC 11 as development
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run all tests (normal + sanitizers)
+        run: make -C tests
