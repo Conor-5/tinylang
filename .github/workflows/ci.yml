@@ -1,6 +1,10 @@
 # CI: builds everything and runs every test on each push to main and on
 # pull requests. `make -C tests` runs the normal build and the
 # -fsanitize=address,undefined build, both with -Werror.
+#
+# Two Ubuntu releases, so two GCC versions: newer GCC adds warnings that
+# -Werror turns into build failures, and older GCC is what development
+# uses.
 
 name: CI
 
@@ -11,8 +15,16 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04   # same Ubuntu release and GCC 11 as development
+    strategy:
+      fail-fast: false   # always report both, even if one fails
+      matrix:
+        os:
+          - ubuntu-22.04   # GCC 11, same as development
+          - ubuntu-24.04   # GCC 13
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - name: Compiler version
+        run: cc --version
       - name: Build and run all tests (normal + sanitizers)
         run: make -C tests
