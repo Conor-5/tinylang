@@ -116,7 +116,7 @@ static void test_too_many_variables_across_inputs(void)
     int i;
     memset(&names, 0, sizeof names);
     for (i = 0; i < LANG_VARS_MAX; i++) {
-        char src[16];
+        char src[32];
         snprintf(src, sizeof src, "v%d = 1\n", i);
         CHECK(lang_compile(src, &names, true, &prog, err, sizeof err));
     }
